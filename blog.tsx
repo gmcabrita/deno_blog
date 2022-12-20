@@ -435,23 +435,25 @@ function serveRSS(
   });
 
   for (const [_key, post] of posts.entries()) {
-    const item: FeedItem = {
-      id: `${origin}/${post.title}`,
-      title: post.title,
-      description: post.snippet,
-      content: gfm.render(post.markdown, {
-        allowIframes: post.allowIframes,
-      }),
-      date: post.publishDate,
-      link: `${origin}${post.pathname}`,
-      author: post.author?.split(",").map((author: string) => ({
-        name: author.trim(),
-      })),
-      image: post.ogImage,
-      copyright,
-      published: post.publishDate,
-    };
-    feed.addItem(item);
+    if (!post.draft) {
+      const item: FeedItem = {
+        id: `${origin}/${post.title}`,
+        title: post.title,
+        description: post.snippet,
+        content: gfm.render(post.markdown, {
+          allowIframes: post.allowIframes,
+        }),
+        date: post.publishDate,
+        link: `${origin}${post.pathname}`,
+        author: post.author?.split(",").map((author: string) => ({
+          name: author.trim(),
+        })),
+        image: post.ogImage,
+        copyright,
+        published: post.publishDate,
+      };
+      feed.addItem(item);
+    }
   }
 
   const atomFeed = feed.atom1();
