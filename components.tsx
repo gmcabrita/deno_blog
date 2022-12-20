@@ -231,7 +231,7 @@ export function PostPage({ post, state }: PostPageProps) {
 function Footer(props: { author?: string }) {
   return (
     <footer class="mt-20 pb-16 lt-sm:pb-8 lt-sm:mt-16">
-      <p class="flex items-center gap-2.5 text-gray-400/800 dark:text-gray-500/800 text-sm">
+      <p class="flex items-center justify-center gap-2.5 text-gray-400/800 dark:text-gray-500/800 text-sm">
         <a
           href="/feed"
           class="inline-flex items-center gap-1 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
