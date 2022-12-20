@@ -89,6 +89,7 @@ export interface Post {
   pathname: string;
   markdown: string;
   title: string;
+  draft?: boolean;
   publishDate: Date;
   author?: string;
   snippet?: string;

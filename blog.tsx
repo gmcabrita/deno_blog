@@ -257,6 +257,7 @@ async function loadPost(postsDirectory: string, path: string) {
     // pathname in front matter.
     pathname: data.get("pathname") ?? pathname,
     // Note: no error when publish_date is wrong or missed
+    draft: data.get("draft"),
     publishDate: data.get("publish_date") instanceof Date
       ? data.get("publish_date")!
       : new Date(),

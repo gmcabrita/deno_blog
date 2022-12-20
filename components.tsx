@@ -25,7 +25,9 @@ interface IndexProps {
 export function Index({ state, posts }: IndexProps) {
   const postIndex = [];
   for (const [_key, post] of posts.entries()) {
-    postIndex.push(post);
+    if (!post.draft) {
+      postIndex.push(post);
+    }
   }
   postIndex.sort(
     (a, b) => (b.publishDate?.getTime() ?? 0) - (a.publishDate?.getTime() ?? 0),
