@@ -438,6 +438,9 @@ function serveRSS(
       id: `${origin}/${post.title}`,
       title: post.title,
       description: post.snippet,
+      content: gfm.render(post.markdown, {
+        allowIframes: post.allowIframes,
+      }),
       date: post.publishDate,
       link: `${origin}${post.pathname}`,
       author: post.author?.split(",").map((author: string) => ({
