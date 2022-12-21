@@ -5,8 +5,8 @@ import {
   assert,
   assertEquals,
   assertStringIncludes,
-} from "https://deno.land/std@0.153.0/testing/asserts.ts";
-import { fromFileUrl, join } from "https://deno.land/std@0.153.0/path/mod.ts";
+} from "https://deno.land/std@0.170.0/testing/asserts.ts";
+import { fromFileUrl, join } from "https://deno.land/std@0.170.0/path/mod.ts";
 
 const BLOG_URL = new URL("./testdata/main.js", import.meta.url).href;
 const TESTDATA_PATH = fromFileUrl(new URL("./testdata/", import.meta.url));
@@ -152,7 +152,10 @@ Deno.test("redirect map", async () => {
     );
     assert(resp);
     assertEquals(resp.status, 308);
-    assertEquals(resp.headers.get("location"), "https://www.linkedin.com/in/foobar");
+    assertEquals(
+      resp.headers.get("location"),
+      "https://www.linkedin.com/in/foobar",
+    );
     await resp.text();
   }
   {
@@ -161,7 +164,10 @@ Deno.test("redirect map", async () => {
     );
     assert(resp);
     assertEquals(resp.status, 308);
-    assertEquals(resp.headers.get("location"), "http://www.linkedin.com/in/foobar");
+    assertEquals(
+      resp.headers.get("location"),
+      "http://www.linkedin.com/in/foobar",
+    );
     await resp.text();
   }
 });

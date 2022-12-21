@@ -1,6 +1,6 @@
 // Copyright 2022 the Deno authors. All rights reserved. MIT license.
 
-import { join, resolve } from "https://deno.land/std@0.153.0/path/mod.ts";
+import { join, resolve } from "https://deno.land/std@0.170.0/path/mod.ts";
 
 const HELP = `deno_blog
 
@@ -52,6 +52,7 @@ blog({
     // pathname specified in a key will redirect to pathname in the value.
     // redirects({
     //  "/hello_world.html": "/hello_world",
+    //  "/example_dot_com": "https://www.example.com"
     // }),
 
   // ]
@@ -71,7 +72,7 @@ const DENO_JSONC_CONTENTS = `{
 const IMPORT_MAP_JSON_NAME = "import_map.json";
 const IMPORT_MAP_JSON_CONTENTS = `{
   "imports": {
-    "blog": "https://deno.land/x/blog@0.4.2/blog.tsx"
+    "blog": "https://github.com/gmcabrita/deno_blog/raw/custom/blog.tsx"
   }
 }
 `;

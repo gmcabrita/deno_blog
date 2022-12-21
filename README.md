@@ -4,7 +4,7 @@ Minimal boilerplate blogging. All you need is one boilerplate JavaScript file
 that has 2 lines of code:
 
 ```js
-import blog from "https://deno.land/x/blog/blog.tsx";
+import blog from "https://github.com/gmcabrita/deno_blog/raw/custom/blog.tsx";
 
 blog();
 ```
@@ -57,6 +57,7 @@ blog({
       "/foo": "/my_post",
       // you can skip leading slashes too
       "bar": "my_post2",
+      "/example_dot_com": "https://www.example.com",
     }),
   ],
   unocss: unocss_opts, // check https://github.com/unocss/unocss
