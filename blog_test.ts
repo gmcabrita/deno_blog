@@ -20,6 +20,8 @@ const BLOG_SETTINGS = await configureBlog(BLOG_URL, false, {
       "/to_second": "second",
       "/to_second_with_slash": "/second",
       "second.html": "second",
+      "/linkedin": "https://www.linkedin.com/in/foobar",
+      "/linkedin_second": "http://www.linkedin.com/in/foobar",
     }),
   ],
   readtime: true,
@@ -122,7 +124,7 @@ Deno.test("redirect map", async () => {
       new Request("https://blog.deno.dev/second.html"),
     );
     assert(resp);
-    assertEquals(resp.status, 307);
+    assertEquals(resp.status, 308);
     assertEquals(resp.headers.get("location"), "/second");
     await resp.text();
   }
@@ -131,7 +133,7 @@ Deno.test("redirect map", async () => {
       new Request("https://blog.deno.dev/to_second"),
     );
     assert(resp);
-    assertEquals(resp.status, 307);
+    assertEquals(resp.status, 308);
     assertEquals(resp.headers.get("location"), "/second");
     await resp.text();
   }
@@ -140,8 +142,26 @@ Deno.test("redirect map", async () => {
       new Request("https://blog.deno.dev/to_second_with_slash"),
     );
     assert(resp);
-    assertEquals(resp.status, 307);
+    assertEquals(resp.status, 308);
     assertEquals(resp.headers.get("location"), "/second");
+    await resp.text();
+  }
+  {
+    const resp = await testHandler(
+      new Request("https://blog.deno.dev/linkedin"),
+    );
+    assert(resp);
+    assertEquals(resp.status, 308);
+    assertEquals(resp.headers.get("location"), "https://www.linkedin.com/in/foobar");
+    await resp.text();
+  }
+  {
+    const resp = await testHandler(
+      new Request("https://blog.deno.dev/linkedin_second"),
+    );
+    assert(resp);
+    assertEquals(resp.status, 308);
+    assertEquals(resp.headers.get("location"), "http://www.linkedin.com/in/foobar");
     await resp.text();
   }
 });
