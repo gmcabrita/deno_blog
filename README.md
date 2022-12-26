@@ -35,7 +35,7 @@ from the Deno Manual.
 You can customize your blog as follows:
 
 ```js
-import blog, { ga, redirects } from "https://deno.land/x/blog/blog.tsx";
+import blog, { ga, redirects } from "https://github.com/gmcabrita/deno_blog/raw/custom/blog.tsx";
 import { unocss_opts } from "./unocss.ts";
 
 blog({
@@ -75,7 +75,7 @@ settings. You can customize them as follows:
 ```jsx
 /** @jsx h */
 
-import blog, { h } from "https://deno.land/x/blog/blog.tsx";
+import blog, { h } from "https://github.com/gmcabrita/deno_blog/raw/custom/blog.tsx";
 
 blog({
   title: "My Blog",

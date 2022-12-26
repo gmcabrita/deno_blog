@@ -23,7 +23,7 @@ versions of Lorem Ipsum.
 ## Usage
 
 ```js
-import blog from "https://deno.land/x/blog/blog.tsx";
+import blog from "https://github.com/gmcabrita/deno_blog/raw/custom/blog.tsx";
 
 blog({
   author: "Dino",
