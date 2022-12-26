@@ -423,8 +423,8 @@ function serveRSS(
   const feed = new Feed({
     title: state.title ?? "Blog",
     description: state.description,
-    id: `${origin}/blog`,
-    link: `${origin}/blog`,
+    id: `${origin}`,
+    link: `${origin}`,
     language: state.lang ?? "en",
     favicon: `${origin}/favicon.ico`,
     copyright: copyright,
